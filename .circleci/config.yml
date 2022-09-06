@@ -6,16 +6,16 @@ jobs:
     docker:
     # Primary container image where all steps run
      - image: cimg/node:18.8.0
-        auth:
+        auth: 
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
+    steps: 
       - checkout
-      - run:
+      - run: 
           name: install dependencies
           command: |
             echo "nothing needs to be installed"
-      - run:
+      - run: 
           name: Run test
           command: |
             echo "no tests"
@@ -25,6 +25,7 @@ jobs:
             docker --version # print the version for logging
             docker build -t simple-node .
             docker tag simple-node 2bit2bit/simple-node:latest
+            
 workflows:
   build_test:
     jobs:
