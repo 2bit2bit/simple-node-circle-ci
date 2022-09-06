@@ -23,6 +23,9 @@ jobs:
             docker --version # print the version for logging
             docker build -t simple-node .
             docker tag simple-node 2bit2bit/simple-node:latest
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push 2bit2bit/simple-node:latest
+
             
 workflows:
   build_test:
